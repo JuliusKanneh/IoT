@@ -37,7 +37,7 @@ void loop()
   int h = dht.readHumidity(); 
   int t = dht.readTemperature(); 
 
-  Serial.println("Temperature:");
+  Serial.println("\nTemperature:");
   Serial.println(t);// printing the value of temp in the serial Monitor
   Serial.println("Relative Humidity");
   Serial.println(h);// printing the value of hum in the serial Monitor
