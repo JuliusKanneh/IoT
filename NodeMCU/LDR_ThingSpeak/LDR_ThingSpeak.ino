@@ -3,14 +3,14 @@
 #include <ThingSpeak.h>
 #include <ESP8266WiFi.h>
 
-const char* ssid = "CANALBOX-BA81";
-const char* password = "8955819532";
+const char* ssid = "CANALBOX-DBD6";
+const char* password = "1316523275";
 
 #define LDR_pin A0
 
 WiFiClient client;
 unsigned long myChannelNumber = 1401620; //My Channel Number 
-const char* myWriteAPIKey = "DYFAW9OJDMPNMJEU"; //channel API key
+const char* myWriteAPIKey = "DYFAW9OJDMPNMJEU"; //channel API key 
  
 void setup() {
   delay(1000);
