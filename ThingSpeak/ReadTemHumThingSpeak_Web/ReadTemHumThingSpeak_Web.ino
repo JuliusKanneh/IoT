@@ -25,6 +25,7 @@ const int FieldNumber2 = 2; //Field 2
 //Read current temperature & humidity
 float temp = 0.0;
 float hum = 0.0;
+char state[] = "Normal";
 
 //Create an AsyncwebServer object on port 80
 AsyncWebServer server(80);
@@ -51,7 +52,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     h2 { font-size: 3.0rem; }
     p { font-size: 3.0rem; }
     .units { font-size: 1.2rem; }
-    .dht-labels{
+    .dht-label{
       font-size: 1.5rem;
       vertical-align:middle;
       padding-bottom: 15px;
@@ -61,8 +62,13 @@ const char index_html[] PROGMEM = R"rawliteral(
 <body>
   <h2>ESP8266 HDH Server </h2>
   <p>
+    <i class="fa fa-flag" style="color:#00add6;" ></i>
+    <span class="dht-label">Status</span>
+    <span id="status">%STATUS%</span>
+  </p>
+  <p>
     <i class="fas fa-thermometer-half" style="color:#059e8a;"></i>
-    <span class ="dht-labels">Temperature</span>
+    <span class ="dht-label">Temperature</span>
     <span id="temperature">%TEMPERATURE%</span>
     <sup class="units">&deg;C</sup>
   </p>
@@ -72,6 +78,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     <span id="humidity">%HUMIDITY%</span>
     <sup class="units">%</sup>
   </p>
+
 </body>
 <script>
   setInterval(function (){
@@ -95,6 +102,17 @@ const char index_html[] PROGMEM = R"rawliteral(
     xhttp.open("GET", "/humidity", true);
     xhttp.send();
   }, 10000 );
+
+  setInterval(function() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readystatechange == 4 && this.status == 200) {
+        document.getElementById("status").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "/status", true);
+    xhttp.send();
+  }, 10000 );
 </script>
 )rawliteral";
 
@@ -106,6 +124,8 @@ String processor(const String& var){
   }
   else if(var == "HUMIDITY"){
     return String(hum);
+  }else if(var == "STATUS"){
+    return String(state);
   }
   return String();
 }
@@ -139,6 +159,11 @@ void setup() {
     //Route for humidity
     server.on("/humidity", HTTP_GET, [](AsyncWebServerRequest *request){
       request->send_P(200, "text/plain", String(hum).c_str());
+      });
+
+      //Route for status
+    server.on("/status", HTTP_GET, [](AsyncWebServerRequest *request){
+      request->send_P(200, "text/plain", String(state).c_str());
       });
 
     //Start Server
