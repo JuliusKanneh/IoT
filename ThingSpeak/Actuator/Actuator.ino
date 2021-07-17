@@ -4,8 +4,8 @@
 #include <ESPAsyncWebServer.h>
 
 // Your network credentials
-const char* ssid = "CANALBOX-DBD6";    //  Your Wi-Fi Name
-const char* password = "1316523275";   // Wi-Fi Password
+const char* ssid = "CANALBOX-DBD6";    //  Your Wi-Fi Name 
+const char* password = "1316523275";   // Wi-Fi Password 
 
 //  GPIO 5 meaning D1 pins 
 int Red = 5;   
