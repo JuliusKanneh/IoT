@@ -1,3 +1,18 @@
+h1{
+    font-family: Helvetica;
+    color: white;
+}
+
+input{
+    font-size:25px;
+    text-align: center;
+    border-radius: 15;
+}
+
+.btn{
+    /* border-radius: 5; */
+}
+
 #ip {
     width: 399px;
     height: 59px;
