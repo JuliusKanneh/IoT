@@ -21,15 +21,20 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "CANALBOX-DBD6"
-#define WLAN_PASS       "1316523275"
+#define WLAN_SSID       "YOUR_SSID"
+#define WLAN_PASS       "YOUR_SSID_PASSWORD"
 
 /************************* Adafruit.io Setup *********************************/
 
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
+<<<<<<< HEAD:Adafruit/mqtt_esp8266/mqtt_esp8266.ino
 #define AIO_USERNAME    "juliuskanneh"
 #define AIO_KEY         "aio_POiE91VexKBRlbnXnA7LtdfLUNuF"
+=======
+#define AIO_USERNAME    "your_username"
+#define AIO_KEY         "your_aio_key" //check your account profile for your key (keep it confidential)
+>>>>>>> 77c6c634d43e4d3b187ced647a7e302fa92d573f:mqtt/mqtt_esp8266/mqtt_esp8266.ino
 
 /************ Global State (you don't need to change this!) ******************/
 
