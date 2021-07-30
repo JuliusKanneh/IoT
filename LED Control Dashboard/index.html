@@ -23,8 +23,7 @@
     <div align="center" class="form">
         <div class="center">
             <form action="" method="get">
-                <input type="text" id="ip" class="ip"
-                    placeholder="Thingspeak Write API Key"></input><br>
+                <input type="text" id="ip" class="ip" placeholder="Thingspeak Write API Key"/><br>
                 <button type="button" id="D1-on" class="btn">D1 ON</button>
                 <button type="button" id="D1-off" class="btn">D1 OFF</button>
                 <br>
@@ -46,7 +45,7 @@
 <script>
     document.getElementById('D1-on').addEventListener('click', function () {
         var ip = document.getElementById('ip').value;
-        var url = "http://api.thingspeak.com/update?api_key=" + ip + "&field1=1";
+        var url = "https://api.thingspeak.com/update?api_key=" + ip + "&field1=1";
         $.getJSON(url, function (data) {
             console.log(data);
         });
@@ -54,7 +53,7 @@
 
     document.getElementById('D1-off').addEventListener('click', function () {
         var ip = document.getElementById('ip').value;
-        var url = "http://api.thingspeak.com/update?api_key=" + ip + "&field1=0";
+        var url = "https://api.thingspeak.com/update?api_key=" + ip + "&field1=0";
         $.getJSON(url, function (data) {
             console.log(data);
         });
@@ -62,7 +61,7 @@
 
     document.getElementById('D2-on').addEventListener('click', function () {
         var ip = document.getElementById('ip').value;
-        var url = "http://api.thingspeak.com/update?api_key=" + ip + "&field2=1";
+        var url = "https://api.thingspeak.com/update?api_key=" + ip + "&field2=1";
         $.getJSON(url, function (data) {
             console.log(data);
         });
@@ -70,7 +69,7 @@
 
     document.getElementById('D2-off').addEventListener('click', function () {
         var ip = document.getElementById('ip').value;
-        var url = "http://api.thingspeak.com/update?api_key=" + ip + "&field2=0";
+        var url = "https://api.thingspeak.com/update?api_key=" + ip + "&field2=0";
         $.getJSON(url, function (data) {
             console.log(data);
         });
@@ -78,7 +77,7 @@
 
     document.getElementById('D3-on').addEventListener('click', function () {
         var ip = document.getElementById('ip').value;
-        var url = "http://api.thingspeak.com/update?api_key=" + ip + "&field3=1";
+        var url = "https://api.thingspeak.com/update?api_key=" + ip + "&field3=1";
         $.getJSON(url, function (data) {
             console.log(data);
         });
@@ -86,12 +85,16 @@
 
     document.getElementById('D3-off').addEventListener('click', function () {
         var ip = document.getElementById('ip').value;
-        var url = "http://api.thingspeak.com/update?api_key=" + ip + "&field3=0";
+        var url = "https://api.thingspeak.com/update?api_key=" + ip + "&field3=0";
         $.getJSON(url, function (data) {
             console.log(data);
         });
     });
+<<<<<<< HEAD
     alert ("Hello World");
   
+=======
+  alert("Hello");
+>>>>>>> d3418f785fb06a2bd271058ad0b475aca2f1516b
 </script>
 </html>
