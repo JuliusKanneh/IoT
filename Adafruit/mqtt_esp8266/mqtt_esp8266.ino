@@ -29,7 +29,7 @@
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
 #define AIO_USERNAME    "juliuskanneh"
-#define AIO_KEY         "aio_Bbcm77e4dqjiaSo8pu7ksmFMpZyF"
+#define AIO_KEY         "aio_POiE91VexKBRlbnXnA7LtdfLUNuF"
 
 /************ Global State (you don't need to change this!) ******************/
 
@@ -75,7 +75,8 @@ void setup() {
   Serial.println();
 
   Serial.println("WiFi connected");
-  Serial.println("IP address: "); Serial.println(WiFi.localIP());
+  Serial.println("IP address: "); 
+  Serial.println(WiFi.localIP());
 
   // Setup MQTT subscription for onoff feed.
   mqtt.subscribe(&onoffbutton);
