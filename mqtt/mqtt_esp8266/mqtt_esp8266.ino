@@ -21,15 +21,15 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define WLAN_SSID       "CANALBOX-DBD6"
-#define WLAN_PASS       "1316523275"
+#define WLAN_SSID       "YOUR_SSID"
+#define WLAN_PASS       "YOUR_SSID_PASSWORD"
 
 /************************* Adafruit.io Setup *********************************/
 
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "juliuskanneh"
-#define AIO_KEY         "aio_Bbcm77e4dqjiaSo8pu7ksmFMpZyF"
+#define AIO_USERNAME    "your_username"
+#define AIO_KEY         "your_aio_key" //check your account profile for your key (keep it confidential)
 
 /************ Global State (you don't need to change this!) ******************/
 
