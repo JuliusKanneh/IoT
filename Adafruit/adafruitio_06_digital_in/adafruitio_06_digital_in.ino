@@ -1,5 +1,5 @@
-// Adafruit IO Analog In Example
-// Tutorial Link: https://learn.adafruit.com/adafruit-io-basics-analog-input
+// Adafruit IO Digital Input Example
+// Tutorial Link: https://learn.adafruit.com/adafruit-io-basics-digital-input
 //
 // Adafruit invests time and resources providing this open source code.
 // Please support Adafruit and open source hardware by purchasing
@@ -20,27 +20,29 @@
 
 /************************ Example Starts Here *******************************/
 
-// analog pin 0
-#define PHOTOCELL_PIN A0
+// digital pin 5
+#define BUTTON_PIN 5
+int LED = 4;
+int ALARM = 0;
 
-int led = 5;
-int alarm = 4;
 
-// photocell state
-int current = 0;
-int last = -1;
+// button state
+bool current = false;
+bool last = false;
 
-// set up the 'analog' feed
-AdafruitIO_Feed *analog = io.feed("analog");
+// set up the 'digital' feed
+AdafruitIO_Feed *digital = io.feed("digital");
 
 void setup() {
+
+  // set button pin as an input
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(LED, OUTPUT);
+  pinMode(ALARM, OUTPUT);
 
   // start the serial connection
   Serial.begin(115200);
 
-  pinMode(led, OUTPUT);
-  pinMode(alarm, OUTPUT);
-  
   // wait for serial monitor to open
   while(! Serial);
 
@@ -68,32 +70,29 @@ void loop() {
   // io.adafruit.com, and processes any incoming data.
   io.run();
 
-  // grab the current state of the photocell
-  current = analogRead(PHOTOCELL_PIN);
-
+  // grab the current state of the button.
+  // we have to flip the logic because we are
+  // using a pullup resistor.
+  if(digitalRead(BUTTON_PIN) == HIGH){
+    current = true;
+    digitalWrite(LED, HIGH);
+    digitalWrite(ALARM, HIGH);
+  }else{
+    current = false;
+    digitalWrite(LED, LOW);
+    digitalWrite(ALARM, LOW);
+  }
+  
   // return if the value hasn't changed
   if(current == last)
     return;
 
-  // save the current state to the analog feed
-  Serial.print("sending -> ");
+  // save the current state to the 'digital' feed on adafruit io
+  Serial.print("sending button -> ");
   Serial.println(current);
-  analog->save(current);
+  digital->save(current);
 
-  if(current >= 400){
-    digitalWrite(led, HIGH);
-    digitalWrite(alarm, HIGH);
-  }else{
-    digitalWrite(led, LOW);
-    digitalWrite(alarm, LOW);
-  }
-
-  // store last photocell state
+  // store last button state
   last = current;
 
-  // wait three seconds (1000 milliseconds == 1 second)
-  //
-  // because there are no active subscriptions, we can use delay()
-  // instead of tracking millis()
-  delay(3000);
 }
