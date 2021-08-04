@@ -2,13 +2,13 @@
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
 /************************* WiFi Access Point *********************************/
-#define WLAN_SSID       "CANALBOX-DBD6"
-#define WLAN_PASS       "1316523275"
+#define WLAN_SSID       "SSID"
+#define WLAN_PASS       "PASS"
 /************************* Adafruit.io Setup *********************************/
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "juliuskanneh"
-#define AIO_KEY         "aio_clXh51ZiZgPXN9ZGMlgR3M2OVQd4"
+#define AIO_USERNAME    "my_username"
+#define AIO_KEY         "my_AIO_key"
 /************* Ultrasonic Sensor HC-SR04 Setup ********************************************/
 const int TRIG_PIN = 5;
 const int ECHO_PIN = 4;
@@ -40,7 +40,7 @@ void setup() {
   delay(10);
   Serial.println(F("Adafruit MQTT demo"));
   // Connect to WiFi access point.
-  Serial.println(); 
+  Serial.println();
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(WLAN_SSID);
@@ -51,7 +51,7 @@ void setup() {
   }
   Serial.println();
   Serial.println("WiFi connected");
-  Serial.println("IP address: "); 
+  Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 }
 

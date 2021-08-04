@@ -8,8 +8,8 @@
 /************************* Adafruit.io Setup *********************************/
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "my_AIO_username"
-#define AIO_KEY         "my_AIO_Key"
+#define AIO_USERNAME    "my_username"
+#define AIO_KEY         "my_AIO_key"
 /************* DHT11 Setup ********************************************/
 #define DHTPIN D6
 #define DHTTYPE DHT11
