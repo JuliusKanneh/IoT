@@ -3,13 +3,13 @@
 #include "Adafruit_MQTT_Client.h"
 #include "DHT.h"
 /************************* WiFi Access Point *********************************/
-#define WLAN_SSID       "MY_SSID"
-#define WLAN_PASS       "MY_PASS"
+#define WLAN_SSID       "CANALBOX-DBD6"
+#define WLAN_PASS       "1316523275"
 /************************* Adafruit.io Setup *********************************/
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "my_username"
-#define AIO_KEY         "my_AIO_key"
+#define AIO_USERNAME    "juliuskanneh"
+#define AIO_KEY         "aio_YSBN67eabxHhKit5RBr48Sib7IyY"
 /************* DHT11 Setup ********************************************/
 #define DHTPIN D6
 #define DHTTYPE DHT11
