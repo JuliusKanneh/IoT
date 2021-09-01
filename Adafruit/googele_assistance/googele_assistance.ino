@@ -22,7 +22,6 @@
 
 // digital pin 5
 int led_pin = 5;
-int led1_pin = 4;
 
 // set up the 'digital' feed
 AdafruitIO_Feed *LED = io.feed("LED");
@@ -31,8 +30,7 @@ void setup() {
 
   // set button pin as an input
   pinMode(led_pin, OUTPUT);
-  pinMode(led1_pin, OUTPUT);
-
+  
   // start the serial connection
   Serial.begin(115200);
 
@@ -69,7 +67,6 @@ void loop() {
   // function. it keeps the client connected to
   // io.adafruit.com, and processes any incoming data.
   io.run();
-
 }
 
 void handleMessage(AdafruitIO_Data *data) {
@@ -78,10 +75,8 @@ void handleMessage(AdafruitIO_Data *data) {
 
   if(data->toPinLevel() == HIGH){
     Serial.println("HIGH");
-    digitalWrite(led1_pin, HIGH);
   }else{
     Serial.println("LOW");
-    digitalWrite(led1_pin, LOW); 
   }
 
   //Write the current state to the led

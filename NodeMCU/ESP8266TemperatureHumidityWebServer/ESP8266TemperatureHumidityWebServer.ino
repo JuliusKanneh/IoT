@@ -8,8 +8,8 @@
 #include <DHT.h>
  
 //My network credentials
-const char* ssid = "DrWise";
-const char* password = "kigalijulius";
+const char* ssid = "CANALBOX-DBD6";
+const char* password = "1316523275";
 
 #define DHTPIN 2
 #define DHTTYPE DHT11
