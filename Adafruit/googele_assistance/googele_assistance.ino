@@ -30,7 +30,11 @@ void setup() {
 
   // set button pin as an input
   pinMode(led_pin, OUTPUT);
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 664389fc7b631e954b28d7b0fa887392bfdcb82b
   // start the serial connection
   Serial.begin(115200);
 
